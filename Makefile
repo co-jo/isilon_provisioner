@@ -14,17 +14,17 @@
 
 .PHONY: image
 
-IMAGE?=xphyr/k8s_isi_provisioner
+IMAGE?=hrynic/isilon_provisioner
 GIT_VERSION := $(shell git describe --abbrev=4 --dirty --always --tags)
 
-image: isi-provisioner
+image: isilon-provisioner
 	docker build -t $(IMAGE) -f Dockerfile.scratch .
 
-isi-provisioner: $(shell find . -name "*.go")
+isilon-provisioner: $(shell find . -name "*.go")
 	glide install -v
-	GOOS=linux CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static" -X main.version=$(GIT_VERSION)' -o k8s_isi_provisioner .
+	GOOS=linux CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static" -X main.version=$(GIT_VERSION)' -o isilon_provisioner .
 
 .PHONY: clean
 clean:
 	rm -rf vendor
-	rm k8s_isi_provisioner
+	rm isilon_provisioner

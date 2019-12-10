@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: k8s-isi-provisioner
+  name: isilon-provisioner
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: k8s-isi-provisioner-runner
+  name: isilon-provisioner
 rules:
   - apiGroups: [""]
     resources: ["persistentvolumes"]
@@ -32,12 +32,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: run-isi-provisioner
+  name: isilon-provisioner
 subjects:
   - kind: ServiceAccount
-    name: k8s-isi-provisioner
+    name: isilon-provisioner
     namespace: default
 roleRef:
   kind: ClusterRole
-  name: k8s-isi-provisioner-runner
+  name: isilon-provisioner
   apiGroup: rbac.authorization.k8s.io

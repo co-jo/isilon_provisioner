@@ -1,22 +1,22 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: k8s-isi-provisioner
+  name: isilon-provisioner
 spec:
   containers:
-    - name: k8s-isi-provisioner
-      image: xphyr/k8s_isi_provisioner:latest
+    - name: isilon-provisioner
+      image: hrynic/isilon_provisioner:latest
       imagePullPolicy: "IfNotPresent"
       env:
-        - name: ISI_SERVER
+        - name: SERVER
           value: 192.168.5.200
-        - name: ISI_PATH
+        - name: PATH
           value: /ifs/test
-        - name: ISI_USER
+        - name: USER
           value: admin
-        - name: ISI_PASS
+        - name: PASS
           value: password
-        - name: ISI_GROUP
+        - name: GROUP
           value: Users
         - name: ISI_QUOTA_ENABLE
           value: "true"

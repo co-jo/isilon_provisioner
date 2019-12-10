@@ -10,7 +10,7 @@ https://github.com/kubernetes-incubator/external-storage
 https://github.com/codedellemc/goisilon
 
 Instructions:
-In order to use this external provisioner, you can use the image pushed to docker hub "xphyr/k8s\_isi\_provisioner", or build it yourself.
+In order to use this external provisioner, you can use the image pushed to docker hub "hrynic/isilon_provisioner", or build it yourself.
 
 Building
 --------
@@ -59,12 +59,12 @@ This provisioner has support for Isilon Storage Quotas, however they have not be
 ## Parameters
 **Param**|**Description**|**Example**
 :-----:|:-----:|:-----:
-ISI\_SERVER|The DNS name (or IP address) of the Isilon to use | isilon.somedomain.com
-ISI\_PATH|The root path for all exports to be created in| \/ifs\/ose\_exports 
-ISI\_USER|The user to connect to the isilon as|admin
-ISI\_PASS|Password for the user account|password
-ISI\_GROUP|The default group to assign to the share|users
-ISI\_QUOTA\_ENABLE|Enable the use of quotas.  Defaults to disabled. | FALSE or TRUE
+SERVER|The DNS name (or IP address) of the Isilon to use | isilon.somedomain.com
+PATH|The root path for all exports to be created in| \/ifs\/ose\_exports 
+USER|The user to connect to the isilon as|admin
+PASS|Password for the user account|password
+GROUP|The default group to assign to the share|users
+QUOTA\_ENABLE|Enable the use of quotas.  Defaults to disabled. | FALSE or TRUE
 
 ## Thanks
 
